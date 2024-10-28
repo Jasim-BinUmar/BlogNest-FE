@@ -20,7 +20,7 @@ const MyBlogs = () => {
     try {
       const token = localStorage.getItem('token');
       const authorId=localStorage.getItem('authorId');
-      const response = await axios.get(`http://localhost:5000/api/blogs/user/${authorId}`, {
+      const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/user/${authorId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
