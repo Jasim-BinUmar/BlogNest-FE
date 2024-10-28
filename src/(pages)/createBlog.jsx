@@ -35,7 +35,7 @@ const CreateBlog = () => {
             }
             console.log(localStorage.getItem('token'));
             try {
-                const response = await fetch('http://localhost:5000/api/blogs', {
+                const response = await fetch('https://blog-nest-be.vercel.app/api/blogs', {
                     method: 'POST',
                     body: formData,
                     headers: {
