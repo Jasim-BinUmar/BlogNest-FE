@@ -22,7 +22,7 @@ const SignUp = () => {
     };
 
     try {
-      const response = await fetch('https://blog-nest-fe.vercel.app/api/auth/register', {
+      const response = await fetch('https://blog-nest-fe.vercel.app/api/auth/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
