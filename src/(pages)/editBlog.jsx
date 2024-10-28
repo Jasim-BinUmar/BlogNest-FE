@@ -14,7 +14,7 @@ const EditBlog = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get(`https://blog-nest-fe.vercel.app/api/blogs/${localStorage.getItem('blogId')}`)
+                const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}`)
                 setProcessedBlog(response.data);
                 console.log(processedBlog);
                 if (blogId !== '0') {
@@ -56,7 +56,7 @@ const EditBlog = () => {
             }
             console.log(localStorage.getItem('token'));
             try {
-                const response = await fetch('https://blog-nest-fe.vercel.app/api/blogs', {
+                const response = await fetch('https://blog-nest-be.vercel.app/api/blogs', {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -87,7 +87,7 @@ const EditBlog = () => {
             }
 
             try {
-                const response = await fetch(`https://blog-nest-fe.vercel.app/api/blogs/${localStorage.getItem('blogId')}`, {
+                const response = await fetch(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}`, {
                     method: 'PUT',
                     body: formData,
                     headers: {
