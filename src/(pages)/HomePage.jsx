@@ -17,8 +17,9 @@ const HomePage = () => {
     const fetchBlogs = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/blogs`, {
-          headers: { Authorization: `Bearer ${token}` }
+        const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs`, {
+          headers: { Authorization: `Bearer ${token}` },
+            credentials: 'include',
         });
   
         const processedBlogs = response.data.map(blog => ({
