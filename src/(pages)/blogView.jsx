@@ -19,7 +19,7 @@ const BlogView = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/blogs/${localStorage.getItem('blogId')}`);
+                const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}`);
                 setBlogId(localStorage.getItem('blogId'));
                 setTitle(response.data.title);
                 setDescription(response.data.content);
@@ -35,7 +35,7 @@ const BlogView = () => {
 
         const fetchComments = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/blogs/${localStorage.getItem('blogId')}/comments`);
+                const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}/comments`);
                 setComments(response.data);
             } catch (error) {
                 console.error('Error fetching comments:', error);
@@ -50,7 +50,7 @@ const BlogView = () => {
         const token = localStorage.getItem('token');
         try {
             const response = await axios.post(
-                `http://localhost:5000/api/blogs/${blogId}/comments`,
+                `https://blog-nest-be.vercel.app/api/blogs/${blogId}/comments`,
                 { content: newComment },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -65,7 +65,7 @@ const BlogView = () => {
         const token = localStorage.getItem('token');
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/blogs/${localStorage.getItem('blogId')}/comments/${commentId}`,
+                `https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}/comments/${commentId}`,
                 { content: updatedContent },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -78,7 +78,7 @@ const BlogView = () => {
     const deleteComment = async (commentId) => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:5000/api/blogs/${localStorage.getItem('blogId')}/comments/${commentId}`, {
+            await axios.delete(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}/comments/${commentId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setComments(comments.filter(comment => comment._id !== commentId));
