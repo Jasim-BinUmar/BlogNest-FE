@@ -20,7 +20,7 @@ const BlogView = () => {
         const fetchBlogs = async () => {
             try {
                 const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}`);
-                setBlogId(id);
+                setBlogId(localStorage.getItem('blogId'));
                 setTitle(response.data.title);
                 setDescription(response.data.content);
                 setAuthor(response.data.author.username);
