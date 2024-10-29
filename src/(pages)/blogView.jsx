@@ -19,8 +19,8 @@ const BlogView = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}`);
-                setBlogId(localStorage.getItem('blogId'));
+                const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/${id}`);
+                setBlogId(id);
                 setTitle(response.data.title);
                 setDescription(response.data.content);
                 setAuthor(response.data.author.username);
@@ -35,7 +35,7 @@ const BlogView = () => {
 
         const fetchComments = async () => {
             try {
-                const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}/comments`);
+                const response = await axios.get(`https://blog-nest-be.vercel.app/api/blogs/${id}/comments`);
                 setComments(response.data);
             } catch (error) {
                 console.error('Error fetching comments:', error);
@@ -65,7 +65,7 @@ const BlogView = () => {
         const token = localStorage.getItem('token');
         try {
             const response = await axios.put(
-                `https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}/comments/${commentId}`,
+                `https://blog-nest-be.vercel.app/api/blogs/${blogId}/comments/${commentId}`,
                 { content: updatedContent },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -78,7 +78,7 @@ const BlogView = () => {
     const deleteComment = async (commentId) => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`https://blog-nest-be.vercel.app/api/blogs/${localStorage.getItem('blogId')}/comments/${commentId}`, {
+            await axios.delete(`https://blog-nest-be.vercel.app/api/blogs/${blogId}/comments/${commentId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setComments(comments.filter(comment => comment._id !== commentId));
