@@ -41,7 +41,11 @@ const SignUp = () => {
       console.log('User registered:', data);
       
       // Navigate to login or another page
-      navigate('/signIn');
+      if(success === 'Registration successful!')
+      {
+        navigate('/signIn');  
+      }
+      
     } catch (error) {
       setError(error.message);
       console.error('Error:', error);
