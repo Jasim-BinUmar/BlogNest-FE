@@ -45,10 +45,7 @@ Launches the test runner in the interactive watch mode.
 Builds the app for production to the `build` folder.\
 The build is minified and optimized for best performance.
 
-## Environment Variables
-
-To run this project, you may need to add the following environment variables to your .env file:
-REACT_APP_API_KEY=your_api_key
+## FE Screens
 
 Following are some screens showcasing the interface of the application on desktop view.
 ![image](https://github.com/user-attachments/assets/0dac857c-2372-4e94-94bc-0e576a3b1911)
